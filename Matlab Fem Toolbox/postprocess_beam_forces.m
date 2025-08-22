@@ -22,7 +22,7 @@ for e=1:length(elements)
         % element end forces in local coords: f = k_local * u_local - f_consistent (if any)
         f_el = k_local * u_local;
         % subtract consistent udl if present
-        if isfield(elements(e),'udl') && elements(e).udl~=0
+        if isfield(elements(e),'udl') && any(elements(e).udl~=0)
             q = elements(e).udl; f_cons = compute_udl_equivalent(q, L); f_el = f_el - f_cons;
         end
         % assign outputs

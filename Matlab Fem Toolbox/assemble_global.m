@@ -20,7 +20,7 @@ for e=1:length(elements)
         [k_e, dof] = beam_element(nodes(nid(1),:), nodes(nid(2),:), p.E, p.I, p.A, nid(1), nid(2));
         K(dof,dof) = K(dof,dof) + k_e;
         % if element has udl (local w in props), compute equivalent and add
-        if isfield(elements(e),'udl') && elements(e).udl~=0
+        if isfield(elements(e),'udl') && any(elements(e).udl~=0)
             L = sqrt(sum((nodes(nid(2),:)-nodes(nid(1),:)).^2));
             q = elements(e).udl; % local magnitude (positive down)
             f_el_local = compute_udl_equivalent(q, L);

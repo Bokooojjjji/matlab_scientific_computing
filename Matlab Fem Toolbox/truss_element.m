@@ -1,5 +1,4 @@
-function [k_global, dof] = 
-truss_element(node1, node2, E, A, id1, id2)
+function [k_global, dof] = truss_element(node1, node2, E, A, id1, id2)
 % 2D truss element stiffness in global coordinates (4x4)
 x1 = node1(1); y1 = node1(2);
 x2 = node2(1); y2 = node2(2);
